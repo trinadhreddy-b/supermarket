@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Invoice</title>
+  <style>
+    /* CSS styles for the invoice */
+    /* Add your custom styles here */
+  </style>
+</head>
+<body>
+  <h1>Invoice</h1>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Amount</th>
+    </tr>
+    <% for (const row of invoiceData) { %>
+      <tr>
+        <td><%= row.item %></td>
+        <td><%= row.quantity %></td>
+        <td><%= row.final_price %></td>
+      </tr>
+    <% } %>
+  </table>
+  <hr>
+  <div>Total Price: <%= prices.total_price %></div>
+  <div>Total Savings: <%= prices.total_savings %></div>
+</body>
+</html>

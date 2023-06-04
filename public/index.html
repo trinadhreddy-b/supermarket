@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Form</title>
+    <style>
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="number"] {
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        // Function to add a new row to the form
+        function addRow() {
+            const form = document.getElementById("product-form");
+            const template = document.getElementById("row-template");
+
+            // Clone the template row
+            const newRow = template.content.cloneNode(true);
+
+            // Append the new row to the form
+            form.insertBefore(newRow, form.lastElementChild);
+        }
+    </script>
+</head>
+<body>
+    <h1>Product Form</h1>
+    <form id="product-form" action="/submit" method="POST">
+        <div class="form-row">
+            <select name="product[]" required>
+                <option value="">Select a product</option>
+                <option value="Apple">Apple</option>
+                <option value="Orange">Orange</option>
+                <option value="Potato">Potato</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Cow Milk">Cow Milk</option>
+                <option value="Soy Milk">Soy Milk</option>
+                <option value="Cheddar">Cheddar</option>
+                <option value="Gouda">Gouda</option>
+              </select>
+              
+            <input type="number" name="quantity[]" placeholder="Quantity" required>
+        </div>
+
+        
+        <template id="row-template">
+            <div class="form-row">
+                <select name="product[]" required>
+                    <option value="">Select a product</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Potato">Potato</option>
+                    <option value="Tomato">Tomato</option>
+                    <option value="Cow Milk">Cow Milk</option>
+                    <option value="Soy Milk">Soy Milk</option>
+                    <option value="Cheddar">Cheddar</option>
+                    <option value="Gouda">Gouda</option>
+                  </select>
+                <input type="number" name="quantity[]" placeholder="Quantity" required>
+            </div>
+        </template>
+
+        <!-- Container for buttons -->
+        <div id="buttons-container">
+            <!-- Add more rows dynamically -->
+            <button type="button" onclick="addRow()">Add Row</button>
+
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
